@@ -1,0 +1,37 @@
+modules {
+  module {
+    name = "oozie"
+    language = "python"
+
+    param host {
+        value = "localhost"
+    }
+
+    param port {
+        value = "11000"
+    }
+
+    param secure {
+        value = False
+    }
+
+    param principal {
+        value = "principal/instance"
+    }
+
+    param keytab {
+        value = "/path/to/keytab"
+    }
+    #param topology {
+    #    value="topology"
+    #}
+  }
+}
+
+collection_group {
+  collect_every = 10
+  time_threshold = 50
+  metric {
+    name_match = 'oozie_*'
+  }
+}
